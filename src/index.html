@@ -47,8 +47,8 @@
         </div>
         <div class="h-[800px]"></div>
         <section id="section1">
+            <!-- Player Name & Category Selection -->
             <div class="h-screen flex items-center justify-center">
-                <!-- Main -->
                 <div
                     class="bg-blue-200 p-20 rounded-xl shadow-lg text-center flex flex-col items-center"
                 >
@@ -63,27 +63,82 @@
                     <!-- Categories -->
                     <h2 class="text-2xl font-bold mb-6">Category</h2>
                     <div class="grid grid-cols-2 gap-4">
-                        <a
-                            href="./General Knowledge.html"
-                            id="btn"
+                        <button
+                            type="button"
+                            id="general-knowledge"
+                            value="9"
                             class="bg-yellow-400 text-white py-5 px-8 rounded-lg shadow hover:bg-yellow-500 active:scale-95 transition"
-                            >General Knowledge</a
                         >
-                        <a
-                            href="./Sports.html"
+                            General Knowledge
+                        </button>
+                        <button
+                            type="button"
+                            id="sports"
+                            value="21"
                             class="bg-red-600 text-white py-5 px-8 rounded-lg shadow hover:bg-red-700 active:scale-95 transition"
-                            >Sports</a
                         >
-                        <a
-                            href="./Movies & TV Shows.html"
+                            Sports
+                        </button>
+                        <button
+                            type="button"
+                            id="movies"
+                            value="11"
                             class="bg-blue-700 text-white py-5 px-8 rounded-lg shadow hover:bg-blue-800 active:scale-95 transition"
-                            >Movies & TV Shows</a
                         >
-                        <a
-                            href="./Science & Technology.html"
+                            Movies
+                        </button>
+                        <button
+                            type="button"
+                            id="science-nature"
+                            value="17"
                             class="bg-green-600 text-white py-5 px-8 rounded-lg shadow hover:bg-green-700 active:scale-95 transition"
-                            >Science & Technology</a
                         >
+                            Science & Nature
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Quiz -->
+            <div class="h-screen flex items-center justify-center hidden">
+                <div
+                    class="bg-blue-200 p-20 rounded-xl shadow-lg text-center flex flex-col items-center"
+                >
+                    <!-- Question -->
+                    <div id="question" class="text-lg font-medium mb-4"></div>
+                    <!-- Answers -->
+                    <div id="answers" class="grid gap-3"></div>
+                    <!-- Feedback -->
+                    <div
+                        id="feedback"
+                        class="mt-4 text-center font-semibold"
+                    ></div>
+                    <!-- Leaderboard -->
+                    <div id="leaderboard" class="mt-8 hidden">
+                        <h2 class="text-xl font-bold text-center mb-4">
+                            🏆 Leaderboard
+                        </h2>
+                        <table
+                            class="w-full text-left border border-gray-300 rounded-lg overflow-hidden"
+                        >
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="px-4 py-2 border-b">Rank</th>
+                                    <th class="px-4 py-2 border-b">Name</th>
+                                    <th class="px-4 py-2 border-b">Score</th>
+                                    <th class="px-4 py-2 border-b">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboardBody"></tbody>
+                        </table>
+                    </div>
+                    <!-- Next Button -->
+                    <div class="mt-6 text-center">
+                        <button
+                            id="nextBtn"
+                            class="hidden px-6 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+                        >
+                            Next
+                        </button>
                     </div>
                 </div>
             </div>
