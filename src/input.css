@@ -1,21 +1,19 @@
-/* @import "tailwindcss"; */
- body {
-      font-family: 'Russo One', sans-serif;
-    }
+@import "tailwindcss";
 
-    #start{
-      width: 200px;
-      height: 200px;
-      border-radius: 100px;
-      font-size: 50px;
-      box-shadow: 90%;
-      margin-top: 180px;
-      margin-left: 670px;
-    }
-
-    html {
-  scroll-behavior: smooth;
+body {
+    font-family: "Russo One", sans-serif;
 }
 
+#start {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    font-size: 50px;
+    box-shadow: 90%;
+    margin-top: 180px;
+    margin-left: 670px;
+}
 
-    
+html {
+    scroll-behavior: smooth;
+}
