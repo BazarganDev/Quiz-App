@@ -48,7 +48,7 @@
         <div class="h-[800px]"></div>
         <section id="section1">
             <!-- Player Name & Category Selection -->
-            <div class="h-screen flex items-center justify-center">
+            <div id="quiz-data" class="h-screen flex items-center justify-center">
                 <div
                     class="bg-blue-200 p-20 rounded-xl shadow-lg text-center flex flex-col items-center"
                 >
@@ -99,7 +99,7 @@
                 </div>
             </div>
             <!-- Quiz -->
-            <div class="h-screen flex items-center justify-center hidden">
+            <div id="quiz-questions" class="h-screen flex items-center justify-center hidden">
                 <div
                     class="bg-blue-200 p-20 rounded-xl shadow-lg text-center flex flex-col items-center"
                 >
@@ -124,17 +124,18 @@
                                 <tr>
                                     <th class="px-4 py-2 border-b">Rank</th>
                                     <th class="px-4 py-2 border-b">Name</th>
+                                    <th class="px-4 py-2 border-b">Category</th>
                                     <th class="px-4 py-2 border-b">Score</th>
                                     <th class="px-4 py-2 border-b">Date</th>
                                 </tr>
                             </thead>
-                            <tbody id="leaderboardBody"></tbody>
+                            <tbody id="leaderboard-body"></tbody>
                         </table>
                     </div>
                     <!-- Next Button -->
                     <div class="mt-6 text-center">
                         <button
-                            id="nextBtn"
+                            id="next-button"
                             class="hidden px-6 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
                         >
                             Next
