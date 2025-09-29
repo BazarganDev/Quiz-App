@@ -19,6 +19,8 @@
   "homepage": "https://github.com/BazarganDev/Quiz-App#readme",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.13",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
     "tailwindcss": "^4.1.13"
   }
 }
