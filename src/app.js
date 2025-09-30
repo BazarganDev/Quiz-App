@@ -50,7 +50,7 @@ async function loadQuestions(category) {
 
     // Create an API Endpoint URL of Category
     // Fetch and Parse All Questions
-    const apiEndpoint = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=easy&type=multiple&token=${token}`;
+    const apiEndpoint = `https://opentdb.com/api.php?amount=5&category=${category}&difficulty=easy&type=multiple&token=${token}`;
     const response = await fetch(apiEndpoint);
     const data = await response.json();
 
@@ -165,14 +165,55 @@ function showResults() {
     nextButton.textContent = "Play Again";
     nextButton.classList.remove("hidden");
     nextButton.onclick = () => {
-        document.getElementById("quiz-data").classList.remove("hidden");
         document.getElementById("quiz-questions").classList.add("hidden");
+        document.getElementById("quiz-data").classList.remove("hidden");
         return;
-    };
+    }
+
+    fetch("http://localhost:3000/score", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            name: playerName.value,
+            score,
+            category: currentCategory,
+            date: new Date().toLocaleDateString(),
+        }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("Score saved:", data);
+            document.getElementById("leaderboard").classList.remove("hidden");
+            loadLeaderboard();
+        });
 
     // Reset input field.
     playerName.value = "";
     currentCategory = "";
+}
+
+function loadLeaderboard() {
+    // Fetch the top scores from backend and show them in a table.
+    fetch("http://localhost:3000/leaderboard")
+        .then((response) => response.json())
+        .then((data) => {
+            const leaderboardBody = document.getElementById("leaderboard-body");
+            leaderboardBody.innerHTML = "";
+
+            data.slice(0, 10).forEach((entry, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td class="px-4 py-2 border-b">${index + 1}</td>
+                    <td class="px-4 py-2 border-b">${entry.name}</td>
+                    <td class="px-4 py-2 border-b">${entry.score}</td>
+                    <td class="px-4 py-2 border-b">${entry.category}</td>
+                    <td class="px-4 py-2 border-b text-sm text-gray-500">
+                        ${new Date(entry.date).toLocaleString()}
+                    </td>
+                `;
+                leaderboardBody.appendChild(row);
+            });
+        });
 }
 
 generalKnowledgeCategory.addEventListener("click", async () => {
